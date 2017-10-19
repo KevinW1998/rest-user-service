@@ -1,0 +1,9 @@
+version: '2'
+services:
+  couchbase:
+    ports:
+      - "8091-8094:8091-8094"
+      - "11210:11210"
+    image: "couchbase"
+    container_name: "couchbase_db"
+

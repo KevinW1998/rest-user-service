@@ -1,0 +1,29 @@
+{
+  "name": "rest-user-service",
+  "version": "1.0.0",
+  "description": "A REST service for a user database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinW1998/rest-user-service.git"
+  },
+  "keywords": [
+    "rest",
+    "user",
+    "service"
+  ],
+  "author": "Kevin Waldock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinW1998/rest-user-service/issues"
+  },
+  "homepage": "https://github.com/KevinW1998/rest-user-service#readme",
+  "dependencies": {
+    "couchbase": "^2.4.1",
+    "express": "^4.16.2"
+  }
+}
