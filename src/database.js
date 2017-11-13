@@ -17,12 +17,12 @@ const LoginStatusCode = {
 
 class UserDatabase {
   constructor() {
-    this.cluster = new couchbase.Cluster('couchbase://127.0.0.1');
-    this.bucket = this.cluster.openBucket('default');
-  }
-
-  close() {
-
+    this.cluster = new couchbase.Cluster('couchbase://127.0.0.1?detailed_errcodes=1');
+    this.bucket = this.cluster.openBucket('default', '', err => {
+      if(err) {
+        console.log(`Error while connecting to the cluster: ${err}`)
+      }
+    });
   }
 
   findUser(username, callback) {
@@ -34,8 +34,9 @@ class UserDatabase {
       if(err) {
         console.log(`checkUserAvailable - Error: ${err.message}, Code: ${err.statusCode}`);
         callback(false);
+      } else {
+        callback(true);
       }
-      callback(true);
     });
   }
 
@@ -80,6 +81,8 @@ class UserDatabase {
 }
 
 module.exports = {
-  UserDatabase: UserDatabase
+  UserDatabase: UserDatabase,
+  RegStatusCode: RegStatusCode,
+  LoginStatusCode: LoginStatusCode
 };
 

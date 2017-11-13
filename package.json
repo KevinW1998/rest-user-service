@@ -4,8 +4,14 @@
   "description": "A REST service for a user database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "docker/start.sh && jest",
+    "coverage": "docker/start.sh && jest --coverage",
+    "sudo-test": "sudo docker/start.sh && jest",
+    "sudo-coverage": "sudo docker/start.sh && jest --coverage",
+    "start": "docker/start.sh && node index.js",
+    "sudo-start": "sudo docker/start.sh && node index.js",
+    "stop": "docker/stop.sh",
+    "sudo-stop": "sudo docker/stop.sh"
   },
   "repository": {
     "type": "git",
@@ -23,7 +29,10 @@
   },
   "homepage": "https://github.com/KevinW1998/rest-user-service#readme",
   "dependencies": {
-    "couchbase": "^2.4.1",
-    "express": "^4.16.2"
+    "couchbase": "2.4.1",
+    "express": "4.16.2",
+    "jest": "21.2.1",
+    "request-promise-native": "1.0.5",
+    "uuid": "3.1.0"
   }
 }
