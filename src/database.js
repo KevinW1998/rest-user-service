@@ -17,7 +17,8 @@ const LoginStatusCode = {
 
 class UserDatabase {
   constructor() {
-    this.cluster = new couchbase.Cluster('couchbase://127.0.0.1?detailed_errcodes=1');
+    this.cluster = new couchbase.Cluster('localhost');
+    this.cluster.authenticate('Administrator', '123465')
     this.bucket = this.cluster.openBucket('default', '', err => {
       if(err) {
         console.log(`Error while connecting to the cluster: ${err}`)

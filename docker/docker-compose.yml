@@ -4,6 +4,6 @@ services:
     ports:
       - "8091-8094:8091-8094"
       - "11210:11210"
-    image: "couchbase"
+    image: "couchbase:5.1.0"
     container_name: "couchbase_db"
 

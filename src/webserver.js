@@ -81,7 +81,7 @@ class WebServer {
 
   run() {
     this._server = this._app.listen(3000, function () {
-      console.log("running");
+      console.log("== Running server on port 3000 ==");
     });
   }
 
